@@ -33,7 +33,7 @@ def mmhr2dBR(R, R_threshold=0.1):
     
     # Set the zeros ot the mindBR value of the threshold
     dBR_threshold = 10.0*np.log10(R_threshold) 
-    dBR[zeros] = dBR_threshold 
+    dBR[zeros] = dBR_threshold - 1e-9 # remove small offset to account for numerical precision
     
     return dBR, dBR_threshold
 
@@ -94,7 +94,7 @@ def mmmhr2dBZ(R, R_threshold=0.1, A=316.0, b=1.5):
     
     # Set the zeros ot the mindBR value of the threshold
     dBZ_threshold = 10.0*np.log10(A*R**b)
-    dBZ[zeros] = dBZ_threshold 
+    dBZ[zeros] = dBZ_threshold - 1e-9 # remove small offset to account for numerical precision
     
     return dBR, dBZ_threshold
     
