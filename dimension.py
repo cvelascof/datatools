@@ -17,7 +17,7 @@ def square_domain(Xin, method='crop'):
         raise ValueError("The number of dimension must be <= 4")
         
     if X.shape[2] == X.shape[3]:
-        return
+        return X.squeeze()
         
     orig_dim = (X.shape)
     orig_dim_n = orig_dim[0]
